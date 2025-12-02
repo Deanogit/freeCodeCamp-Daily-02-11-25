@@ -15,7 +15,15 @@
 // Return the number of total infected computers after the given amount of days have passed.
 
 function infected(days) {
-  console.log(days ** days);
-  //
-  return days * days;
+  if (days == 0) {
+    return 1;
+  } else if (days >= 1 && days % 3 != 0) {
+    console.log(days);
+    return days + days;
+  } else {
+    console.log(
+      days + days - Number.parseFloat(days + (days / 100) * 20).toFixed(2)
+    );
+    return days + days - Number.parseFloat(days + (days / 100) * 20).toFixed(2);
+  }
 }
