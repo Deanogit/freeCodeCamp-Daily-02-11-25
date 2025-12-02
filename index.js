@@ -58,17 +58,31 @@
 
 // Output: 25
 
+//function infected(days) {
+//   if (days == 0) {
+//    return 1
+//  } else if (days == 1) {
+//    return 2
+//  } else {
+//    if (days % 3 == 0) {
+//      console.log(days ** 2 )
+//    }
+//    return days ** 2
+//  }
+// }
+
 function infected(days) {
-  if (days == 0) {
-    return 1;
-  } else if (days == 1) {
-    return 2;
-  } else {
-    if (days % 3 == 0) {
-      console.log(days ** 2);
-    }
-    return days ** 2;
+  console.log('This is what we start with: ', days);
+  let counter = days + 1;
+  console.log('This is what we have when we add 1: ', counter);
+  counter ** 2;
+  console.log('This is what we have when we power 2: ', counter);
+  // check if days mod 3
+  if (days % 3 == 0) {
+    let discount = (counter / 100) * 20;
+    console.log(discount);
   }
+  return days;
 }
 
 infected(3);
