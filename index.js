@@ -85,15 +85,35 @@
 // infected(3)
 
 function infected(days) {
-  let counter = 0;
-  for (let i = 0; i <= days - 1; i++) {
-    counter++;
-    console.log(counter);
-    if (counter % 3 == 0) {
-      console.log('3!');
+  let counter = 1;
+  //console.log(days)
+  if (days == 0) {
+    return 1;
+  } else if (days == 1) {
+    return 2;
+  } else if (days > 1) {
+    for (let i = 1; i <= days; i++) {
+      let double = expo(counter);
+      console.log(double);
     }
   }
+  return days;
 }
 
-infected(5);
-// infected(0)
+function discount(n) {
+  let number = Math.ceil((n / 100) * 20);
+  let reduced = n - number;
+  return reduced;
+}
+function expo(n) {
+  let number = n ** 2;
+  return number;
+}
+infected(0);
+infected(2);
+
+// The exponentiation assignment operator (**=) raises the value of a variable to the power of the right operand.
+
+//console.log(discount(8))
+
+//console.log(expo(2))
