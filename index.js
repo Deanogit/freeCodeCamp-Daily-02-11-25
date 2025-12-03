@@ -1,13 +1,3 @@
-// Infected
-// On November 2nd, 1988, the first major internet worm was released, infecting about 10% of computers connected to the internet after only a day.
-
-// In this challenge, you are given a number of days that have passed since an internet worm was released, and you need to determine how many computers are infected using the following rules:
-
-// On day 0, the first computer is infected.
-// Each subsequent day, the number of infected computers doubles.
-// Every 3rd day, a patch is applied after the virus spreads and reduces the number of infected computers by 20%. Round the number of patched computers up to the nearest whole number.
-// For example, on:
-
 // Day 0: 1 total computer is infected.
 // Day 1: 2 total computers are infected.
 // Day 2: 4 total computers are infected.
@@ -71,28 +61,39 @@
 //  }
 // }
 
+// function infected(days) {
+//  console.log("This is what we start with: ", days)
+//  let counter = days + 1
+//  console.log("This is what we have when we add 1: ",counter)
+//  for (let i = 1; i < days; i ++ ) {
+//  counter = counter + counter
+//  console.log("This is what we have when we add counter to counter: ", counter)
+// check if days mod 3
+//  if (days % 3 == 0) {
+//    let discount = Math.ceil(counter / 100 * 20)
+//    console.log(discount)
+//    counter = counter - discount
+//  }
+// return counter
+//  }
+//  return counter
+//}
+
+// infected(0)
+// infected(1)
+// infected(2)
+// infected(3)
+
 function infected(days) {
-  console.log('This is what we start with: ', days);
-  let counter = days + 1;
-  for (let i = 1; i <= days; i++) {
-    console.log('This is what we have when we add 1: ', counter);
-    counter = counter + counter;
-    console.log(
-      'This is what we have when we add counter to counter: ',
-      counter
-    );
-    // check if days mod 3
-    if (days % 3 == 0) {
-      let discount = Math.ceil((counter / 100) * 20);
-      console.log(discount);
-      counter = counter - discount;
+  let counter = 0;
+  for (let i = 0; i <= days - 1; i++) {
+    counter++;
+    console.log(counter);
+    if (counter % 3 == 0) {
+      console.log('3!');
     }
-    return counter;
   }
-  return counter;
 }
 
-infected(0);
-infected(1);
-infected(2);
-infected(3);
+infected(5);
+// infected(0)
