@@ -84,36 +84,77 @@
 // infected(2)
 // infected(3)
 
-function infected(days) {
-  let counter = 1;
-  //console.log(days)
-  if (days == 0) {
-    return 1;
-  } else if (days == 1) {
-    return 2;
-  } else if (days > 1) {
-    for (let i = 1; i <= days; i++) {
-      let double = expo(counter);
-      console.log(double);
-    }
-  }
-  return days;
-}
+// function infected(days) {
+//  let counter = 1;
+//console.log(days)
+//  if (days == 0) {
+//    return 1
+//  } else if (days == 1) {
+//    return 2;
+//  } else if (days > 1) {
+//    for (let i = 1; i<= days; i++ ) {
+//      let double = expo(counter)
+//      console.log(double)
+//    }
+//  }
+//  return days
+// }
 
-function discount(n) {
-  let number = Math.ceil((n / 100) * 20);
-  let reduced = n - number;
-  return reduced;
-}
-function expo(n) {
-  let number = n ** 2;
-  return number;
-}
-infected(0);
-infected(2);
+// function discount(n) {
+//   let number = Math.ceil(n / 100 * 20);
+//   let reduced = n - number;
+//  return reduced;
+// }
+// function expo(n) {
+//   let number = n ** 2
+//   return number
+// }
+// infected(0)
+// infected(2)
 
 // The exponentiation assignment operator (**=) raises the value of a variable to the power of the right operand.
 
 //console.log(discount(8))
 
 //console.log(expo(2))
+
+// function infected(days) {
+//  let computers = 0
+// Day 0: 1 total computer is infected.
+//  if (days == 0) {
+//    computers = 1;
+// Day 1: 2 total computers are infected.
+//    } else if (days == 1) {
+//      computers = 2
+// Day 2: 4 total computers are infected.
+//  } else if (days == 2){
+//    computers = 4
+//  } else if (days = 3) {
+//    computers = 8;
+//  }
+// Day 3: 8 total computers are infected. Then, apply the patch: 8 infected * 20% = 1.6 patched. Round 1.6 up to 2. 8 computers infected - 2 patched = 6 total computers infected after day 3.
+// Return the number of total infected computers after the given amount of days have passed.
+
+//    console.log(computers)
+//    return computers
+// }
+
+// infected(0)
+// infected(1)
+
+function infected(days) {
+  let totalInfected = 1;
+
+  for (let i = 1; i <= days; i++) {
+    // Everyday it doubles
+    totalInfected = totalInfected * 2;
+
+    // 2. Every 3rd day, apply patch
+    if (i % 3 === 0) {
+      let patched = Math.ceil(totalInfected * 0.2);
+      totalInfected = totalInfected - patched;
+    }
+  }
+
+  return totalInfected;
+}
